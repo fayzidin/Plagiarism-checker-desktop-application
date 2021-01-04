@@ -25,8 +25,13 @@ all: $(OBJS)
 	$(LD) -o $(TARGET) $(OBJS) $(LDFLAGS)
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 main.o: admin.c
 	$(CC) -c $(CCFLAGS) admin.c $(GTKLIB) -o main.o
+=======
+main.o: src/txtcheck.c
+	$(CC) -c $(CCFLAGS) src/txtcheck.c $(GTKLIB) -o main.o
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
 main.o: src/txtcheck.c
 	$(CC) -c $(CCFLAGS) src/txtcheck.c $(GTKLIB) -o main.o

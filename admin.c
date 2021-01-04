@@ -24,9 +24,12 @@ GtkWidget *window_application_history;
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 int signal_cpp=0;
 
 
+=======
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 
@@ -59,6 +62,7 @@ void send_recv(int i, fd_set *master, int sockfd, int fdmax)
 	recv_buf[nbytes_recvd] = '\0';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   if(!strcmp(recv_buf,"S.O.P"))
   {
       signal_cpp=1;
@@ -69,6 +73,8 @@ void send_recv(int i, fd_set *master, int sockfd, int fdmax)
   {
       signal_manager;
   }
+=======
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
   
@@ -110,7 +116,11 @@ void connect_request(int *sockfd, struct sockaddr_in *my_addr)
   my_addr->sin_family = AF_INET;
   my_addr->sin_port = htons(8888);
 <<<<<<< HEAD
+<<<<<<< HEAD
   my_addr->sin_addr.s_addr = inet_addr("127.0.0.1");
+=======
+  my_addr->sin_addr.s_addr = INADDR_ANY;
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
   my_addr->sin_addr.s_addr = INADDR_ANY;
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
@@ -157,7 +167,11 @@ int main (int argc, char *argv[])
     gtk_init(&argc, &argv);
    
 <<<<<<< HEAD
+<<<<<<< HEAD
     builder = gtk_builder_new_from_file ("admin.glade");
+=======
+    builder = gtk_builder_new_from_file ("glade/window_main.glade");
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
     builder = gtk_builder_new_from_file ("glade/window_main.glade");
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
@@ -167,7 +181,13 @@ int main (int argc, char *argv[])
     window_application = GTK_WIDGET(gtk_builder_get_object(builder, "window_application"));
     window_application_history = GTK_WIDGET(gtk_builder_get_object(builder, "window_application_history"));
 <<<<<<< HEAD
+<<<<<<< HEAD
  
+=======
+	
+	
+	
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
 	
 	
@@ -181,7 +201,11 @@ int main (int argc, char *argv[])
     gtk_widget_show(window_admin);
    
 <<<<<<< HEAD
+<<<<<<< HEAD
 //    gtk_main 
+=======
+//    gtk_main();
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 =======
 //    gtk_main();
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
@@ -251,6 +275,7 @@ void on_bottom_confirm_clicked()
 void on_bottom_history_clicked(GtkButton *button,gpointer *admin_data)
 {  
 <<<<<<< HEAD
+<<<<<<< HEAD
   // selection signal start
 if(signal_cpp == 1)
   {
@@ -276,11 +301,16 @@ if(signal_cpp == 1)
 
     
 =======
+=======
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
     gtk_widget_show(window_application_history);
     gtk_widget_hide(window_application);
 
     //     gtk_widget_show(window_application);
     // gtk_widget_hide(window_application_history);
+<<<<<<< HEAD
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
+=======
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 }
 

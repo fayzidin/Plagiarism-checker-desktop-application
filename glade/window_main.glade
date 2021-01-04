@@ -444,6 +444,7 @@
     </child>
   </object>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <object class="GtkWindow" id="window_application">
     <property name="can_focus">False</property>
     <property name="default_width">440</property>
@@ -505,6 +506,8 @@
           <placeholder/>
         </child>
 =======
+=======
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
   <object class="GtkWindow" id="window_main">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Plagiarism Checker</property>
@@ -567,6 +570,9 @@
             <property name="y">250</property>
           </packing>
         </child>
+<<<<<<< HEAD
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
+=======
 >>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
       </object>
     </child>
