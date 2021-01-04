@@ -23,9 +23,12 @@ GtkWidget *window_application_history;
 #define BUFSIZE 1024
 
 
+<<<<<<< HEAD
 int signal_cpp=0;
 
 
+=======
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 
 
 void send_to_all(int j, int i, int sockfd, int nbytes_recvd, char *recv_buf, fd_set *master)
@@ -55,6 +58,7 @@ void send_recv(int i, fd_set *master, int sockfd, int fdmax)
   }else { 
 	recv_buf[nbytes_recvd] = '\0';
 
+<<<<<<< HEAD
   if(!strcmp(recv_buf,"S.O.P"))
   {
       signal_cpp=1;
@@ -65,6 +69,8 @@ void send_recv(int i, fd_set *master, int sockfd, int fdmax)
   {
       signal_manager;
   }
+=======
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
   
 
     for(j = 0; j <= fdmax; j++){
@@ -103,7 +109,11 @@ void connect_request(int *sockfd, struct sockaddr_in *my_addr)
     
   my_addr->sin_family = AF_INET;
   my_addr->sin_port = htons(8888);
+<<<<<<< HEAD
   my_addr->sin_addr.s_addr = inet_addr("127.0.0.1");
+=======
+  my_addr->sin_addr.s_addr = INADDR_ANY;
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
   memset(my_addr->sin_zero, '0', sizeof my_addr->sin_zero);
     
   if (setsockopt(*sockfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
@@ -146,13 +156,23 @@ int main (int argc, char *argv[])
 
     gtk_init(&argc, &argv);
    
+<<<<<<< HEAD
     builder = gtk_builder_new_from_file ("admin.glade");
+=======
+    builder = gtk_builder_new_from_file ("glade/window_main.glade");
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
     gtk_builder_connect_signals(builder, NULL);
 
     window_admin = GTK_WIDGET(gtk_builder_get_object(builder, "window_admin"));
     window_application = GTK_WIDGET(gtk_builder_get_object(builder, "window_application"));
     window_application_history = GTK_WIDGET(gtk_builder_get_object(builder, "window_application_history"));
+<<<<<<< HEAD
  
+=======
+	
+	
+	
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
     gtk_widget_hide (GTK_WIDGET(window_admin));
     gtk_widget_hide (GTK_WIDGET(window_application));
     gtk_widget_hide (GTK_WIDGET(window_application_history));
@@ -160,7 +180,11 @@ int main (int argc, char *argv[])
 
     gtk_widget_show(window_admin);
    
+<<<<<<< HEAD
 //    gtk_main 
+=======
+//    gtk_main();
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 pthread_create(&thread_glade, NULL, gtk_main, NULL);
 
 	
@@ -226,6 +250,7 @@ void on_bottom_confirm_clicked()
 
 void on_bottom_history_clicked(GtkButton *button,gpointer *admin_data)
 {  
+<<<<<<< HEAD
   // selection signal start
 if(signal_cpp == 1)
   {
@@ -250,6 +275,13 @@ if(signal_cpp == 1)
     gtk_widget_hide(window_application);
 
     
+=======
+    gtk_widget_show(window_application_history);
+    gtk_widget_hide(window_application);
+
+    //     gtk_widget_show(window_application);
+    // gtk_widget_hide(window_application_history);
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 }
 
 void on_bottom_application_history_back_clicked()

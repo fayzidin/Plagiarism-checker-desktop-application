@@ -12,6 +12,7 @@
 #include<errno.h>
 #include<sys/types.h>
 #include<pthread.h>
+<<<<<<< HEAD
 #include<webkit2/webkit2.h>
 
 GtkBuilder *builder;
@@ -20,6 +21,13 @@ GtkWidget *window_selection;
 GtkWidget *window_application;
 GtkWidget 	*window;
 GtkWidget	*window_browser;
+=======
+
+
+GtkBuilder 	*builder;
+GtkWidget 	*LoginWindow;
+GtkWidget 	*window;
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 GtkWidget 	*w_txtvw_main;            // Pointer to text view object
 GtkWidget 	*w_dlg_file_choose;       // Pointer to file chooser dialog box
 GtkTextBuffer 	*textbuffer_main;     // Pointer to text buffer
@@ -27,9 +35,13 @@ GtkWidget	*w_dlg_about;             // Pointer to about dialog box
 
 #define BUFSIZE 1024
 
+<<<<<<< HEAD
 static char *plagiarism[]={'\0'};
 static int counter=0;
 char detection[]="detections";
+=======
+
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 
 void f(const char* s, char* res) {
     char* l = strchr(s, ' ');
@@ -71,7 +83,11 @@ void connect_request(int *sockfd, struct sockaddr_in *ser_address)
   
   ser_address->sin_port = htons(8888);
   ser_address->sin_family = AF_INET;
+<<<<<<< HEAD
   ser_address->sin_addr.s_addr = inet_addr("127.0.0.1");
+=======
+  ser_address->sin_addr.s_addr = inet_addr("192.168.43.249");
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
   memset(ser_address->sin_zero, '0', sizeof ser_address->sin_zero);
   
   if(connect(*sockfd, (struct sockaddr *)ser_address, sizeof(struct sockaddr)) == -1) {
@@ -80,6 +96,7 @@ void connect_request(int *sockfd, struct sockaddr_in *ser_address)
   }
 }
 
+<<<<<<< HEAD
 void send_plagiarism(char str[]){
 
   char sockfd, fdmax, i;
@@ -103,12 +120,17 @@ void send_plagiarism(char str[]){
   close(sockfd);
 
 }
+=======
+
+
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 
 typedef struct {
     GtkWidget 	*w_txtvw_main;            // Pointer to text view object
     GtkWidget 	*w_dlg_file_choose;       // Pointer to file chooser dialog box
     GtkTextBuffer 	*textbuffer_main;     // Pointer to text buffer
     GtkWidget 	*w_dlg_about;             // Pointer to about dialog box
+<<<<<<< HEAD
     GtkWidget *w_webkit_webview;
 } app_widgets;
 
@@ -127,10 +149,25 @@ int main (int argc, char *argv[])
     webkit_settings_get_type();
    
     builder = gtk_builder_new_from_file ("client.glade");
+=======
+} app_widgets;
+
+
+int main(int argc, char *argv[])
+{	
+	GtkBuilder      *builder; 
+    GtkWidget       *window_txt;
+    app_widgets     *widgets = g_slice_new(app_widgets);
+
+    gtk_init(&argc, &argv);
+   
+    builder = gtk_builder_new_from_file ("glade/window_main.glade");
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
     //gtk_builder_connect_signals(builder, NULL);
 
 
     LoginWindow  = GTK_WIDGET(gtk_builder_get_object(builder, "login"));
+<<<<<<< HEAD
    
     window_selection  = GTK_WIDGET(gtk_builder_get_object(builder, "window_selection"));
     window_application  = GTK_WIDGET(gtk_builder_get_object(builder, "window_application"));
@@ -138,10 +175,15 @@ int main (int argc, char *argv[])
 	window_browser = GTK_WIDGET(gtk_builder_get_object(builder, "window_browser"));
     // Get pointers to widgets
     widgets->w_webkit_webview  = GTK_WIDGET(gtk_builder_get_object(builder, "webkit_webview"));
+=======
+    window = GTK_WIDGET(gtk_builder_get_object(builder, "window_txt"));
+    // Get pointers to widgets
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
     widgets->w_txtvw_main = GTK_WIDGET(gtk_builder_get_object(builder, "txtvw_main"));
     widgets->w_dlg_file_choose = GTK_WIDGET(gtk_builder_get_object(builder, "dlg_file_choose"));
     widgets->textbuffer_main = GTK_TEXT_BUFFER(gtk_builder_get_object(builder, "textbuffer_main"));
     widgets->w_dlg_about = GTK_WIDGET(gtk_builder_get_object(builder, "dlg_about"));
+<<<<<<< HEAD
 
     gtk_widget_hide (GTK_WIDGET(LoginWindow));
     gtk_widget_hide (GTK_WIDGET(window_selection));
@@ -176,10 +218,49 @@ gboolean enteredUsername(GtkEntry *un, gpointer  user)
         PASSWORD = gtk_entry_get_text ((pw));
         return FALSE;
     }
+=======
+    
+	
+	
+    
+
+    /*gtk_widget_hide(GTK_WIDGET(LoginWindow));
+    gtk_widget_hide(GTK_WIDGET(window));*/
+	
+
+
+	gtk_builder_connect_signals(builder, widgets);
+	
+	//g_object_unref(builder);
+	
+    gtk_widget_show(LoginWindow);
+	
+    
+    gtk_main();
+	g_slice_free(app_widgets, widgets);
+	
+    return 0;
+}
+
+                                                           //Starting window
+	const gchar *USERNAME;
+    const gchar *PASSWORD;
+gboolean enteredUsername(GtkEntry *un, gpointer  user)
+{
+    USERNAME = gtk_entry_get_text ((un));
+    return FALSE;
+}
+gboolean enteredPassword(GtkEntry *pw, gpointer  user)
+{
+	PASSWORD = gtk_entry_get_text ((pw));
+    return FALSE;
+}
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 
                                     //Starting window
 void submit_clicked(GtkButton *b1, gpointer  entry1)
 {
+<<<<<<< HEAD
 	if (strcmp(USERNAME,"user") == 0 && strcmp(PASSWORD,"1234") == 0)
 	{
 		
@@ -193,6 +274,18 @@ void submit_clicked(GtkButton *b1, gpointer  entry1)
  
  
  // File --> Open
+=======
+	if(strcmp(USERNAME,"user") == 0 && strcmp(PASSWORD,"1234") == 0)
+	{	
+      
+        gtk_widget_hide(LoginWindow);
+        gtk_widget_show(window);
+    }  
+        
+}
+
+// File --> Open
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 void on_menuitm_open_activate(GtkMenuItem *menuitem, app_widgets *app_wdgts)
 {
     gchar *file_name = NULL;        // Name of file to open from dialog box
@@ -250,6 +343,7 @@ void on_window_txt_destroy()
     gtk_main_quit();
 }
 
+<<<<<<< HEAD
  
  
  
@@ -339,4 +433,8 @@ void on_application_back_clicked()
     gtk_widget_show(window);
     gtk_widget_hide(window_application);
 }
+=======
+
+ 
+>>>>>>> eb4f344df4ee88f933b9138174b647f68458a93e
 
